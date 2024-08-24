@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Hello World! </h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flipkart - Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #2874f0;
+      padding: 10px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header img {
+      width: 150px;
+    }
+    .header .search-bar {
+      flex-grow: 1;
+      margin-left: 20px;
+    }
+    .header input[type="text"] {
+      width: 80%;
+      padding: 8px;
+      border-radius: 2px;
+      border: 1px solid #ccc;
+    }
+    .header .user-options {
+      display: flex;
+      gap: 15px;
+    }
+    .header .user-options a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .banner {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .banner img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+    }
+    .product-section, .details-section, .payment-section, .status-section {
+      display: none;
+      padding: 20px;
+    }
+    .product-section.active, .details-section.active, .payment-section.active, .status-section.active {
+      display: block;
+    }
+    .product {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    .product img {
+      max-width: 100%;
+      height: auto;
+    }
+    .buy-button {
+      background-color: #ff5722;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .buy-button:hover {
+      background-color: #e64a19;
+    }
+    .input-field {
+      margin: 10px 0;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .next-button {
+      background-color: #ff5722;
+      color: white;
+      padding: 15px 0;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+      font-size: 18px;
+      text-align: center;
+      display: block;
+      box-sizing: border-box;
+    }
+    .next-button:hover {
+      background-color: #e64a19;
+    }
+    .check-button {
+      background-color: #2874f0;
+      color: white;
+      padding: 15px;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+      font-size: 18px;
+      text-align: center;
+      display: block;
+    }
+    .check-button:hover {
+      background-color: #005bb5;
+    }
+    .try-again-button {
+      background-color: #4caf50;
+      color: white;
+      padding: 15px;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+      font-size: 18px;
+      text-align: center;
+      display: none;
+    }
+    .try-again-button:hover {
+      background-color: #388e3c;
+    }
+    .error-message {
+      color: red;
+      display: none;
+    }
+    .loading {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 100px;
+      height: 100px;
+      animation: spin 2s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .payment-status {
+      margin-top: 20px;
+      font-size: 22px;
+      color: red;
+      display: none;
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .product {
+        width: 30%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src=https://assets.onecompiler.app/42q5s6zpr/42q5w2k29/WhatsApp%20Image%202024-08-25%20at%2001.55.30_d62935b3.jpg alt="Flipkart Logo">
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands, and more">
+    </div>
+    <div class="user-options">
+      <a href="#">Login</a>
+      <a href="#">Profile</a>
+    </div>
+  </div>
+
+  <div class="banner">
+    <img src=https://assets.onecompiler.app/42q5s6zpr/42q5w2k29/WhatsApp%20Image%202024-08-25%20at%2001.59.36_59499e6f.jpg alt="Big Dhamaka Offer">
+    <h2>Big Dhamaka Offer on Mobile Phones</h2>
+  </div>
+
+  <!-- Product Section -->
+  <div class="product-section active" id="product-section">
+    <div class="product">
+      <img src=https://assets.onecompiler.app/42q5s6zpr/42q5w2k29/WhatsApp%20Image%202024-08-25%20at%2001.50.19_b55cdbeb.jpg alt="Samsung Galaxy S24 Ultra">
+      <h3>Samsung Galaxy S24 Ultra | 12GB RAM, 512GB ROM, Phantom Black</h3>
+      <p>Price: ₹4,999</p>
+      <button class="buy-button" onclick="showDetailsSection('Samsung Galaxy S24 Ultra', 4999)">Buy Now</button>
+    </div>
+    <div class="product">
+      <img src=https://assets.onecompiler.app/42q5s6zpr/42q5w2k29/WhatsApp%20Image%202024-08-25%20at%2001.54.28_8e057301.jpg alt="iPhone 15 Pro">
+      <h3>iPhone 15 Pro | 12GB RAM, 512GB ROM - Silver</h3>
+      <p>Price: ₹5,999</p>
+      <button class="buy-button" onclick="showDetailsSection('iPhone 15 Pro', 5999)">Buy Now</button>
+    </div>
+    <div class="product">
+      <img src=https://assets.onecompiler.app/42q5s6zpr/42q5w2k29/WhatsApp%20Image%202024-08-25%20at%2001.54.47_f086d6be.jpg alt="MacBook Pro">
+      <h3>MacBook Pro 2023 | 16GB RAM, 1TB SSD, Space Gray</h3>
+      <p>Price: ₹9,999</p>
+      <button class="buy-button" onclick="showDetailsSection('MacBook Pro 2023', 9999)">Buy Now</button>
+    </div>
+  </div>
+
+  <!-- Details Section -->
+  <div class="details-section" id="details-section">
+    <h2>Shipping Details</h2>
+    <input type="text" class="input-field" id="name" placeholder="Name" onblur="validateField('name')">
+    <input type="text" class="input-field" id="state" placeholder="State" onblur="validateField('state')">
+    <input type="text" class="input-field" id="city" placeholder="City" onblur="validateField('city')">
+    <input type="text" class="input-field" id="zipcode" placeholder="Zip Code" onblur="validateField('zipcode')">
+    <input type="text" class="input-field" id="address" placeholder="Address" onblur="validateField('address')">
+    <input type="text" class="input-field" id="phone" placeholder="Phone Number" onblur="validateField('phone')">
+    <button class="next-button" onclick="validateDetails()">Next</button>
+    <p class="error-message" id="error-message">Please fill out all fields.</p>
+  </div>
+
+  <!-- Payment Section -->
+  <div class="payment-section" id="payment-section">
+    <h2>Complete Your Payment</h2>
+    <p id="product-details"></p>
+    <p>Scan the QR code to pay</p>
+    <div style="text-align: center;">
+      <img src=https://assets.onecompiler.app/42q5s6zpr/42q5w2k29/WhatsApp%20Image%202024-08-25%20at%2001.57.34_93d005ab.jpg alt="QR Code">
+      <p>UPI ID: paytotiwari@fam</p>
+    </div>
+    <button class="check-button" onclick="showStatusPage()">Check Payment Status</button>
+  </div>
+
+  <!-- Status Section -->
+  <div class="status-section" id="status-section">
+    <div class="loading"></div>
+    <div class="payment-status" id="payment-status">
+      &#10060; Payment not received yet, try again.
+    </div>
+    <button class="try-again-button" onclick="retryPayment()">Try Again</button>
+  </div>
+
+  <script>
+    let selectedProduct, selectedPrice;
+
+    function showDetailsSection(product, price) {
+      selectedProduct = product;
+      selectedPrice = price;
+      document.getElementById('product-section').classList.remove('active');
+      document.getElementById('details-section').classList.add('active');
+    }
+
+    function validateField(id) {
+      const field = document.getElementById(id);
+      if (!field.value.trim()) {
+        field.style.borderColor = 'red';
+        document.getElementById('error-message').style.display = 'block';
+      } else {
+        field.style.borderColor = '';
+        document.getElementById('error-message').style.display = 'none';
+      }
+    }
+
+    function validateDetails() {
+      const fields = ['name', 'state', 'city', 'zipcode', 'address', 'phone'];
+      let isValid = true;
+
+      fields.forEach(field => {
+        if (!document.getElementById(field).value.trim()) {
+          document.getElementById(field).style.borderColor = 'red';
+          isValid = false;
+        } else {
+          document.getElementById(field).style.borderColor = '';
+        }
+      });
+
+      if (isValid) {
+        document.getElementById('details-section').classList.remove('active');
+        document.getElementById('payment-section').classList.add('active');
+        document.getElementById('product-details').innerText = You are purchasing: ${selectedProduct} for ₹${selectedPrice};
+      } else {
+        document.getElementById('error-message').style.display = 'block';
+      }
+    }
+
+    function showStatusPage() {
+      document.getElementById('payment-section').classList.remove('active');
+      document.getElementById('status-section').classList.add('active');
+      setTimeout(() => {
+        document.querySelector('.loading').style.display = 'none';
+        document.getElementById('payment-status').style.display = 'block';
+        document.querySelector('.try-again-button').style.display = 'block';
+      }, 3000); // Simulate 3-5 seconds delay
+    }
+
+    function retryPayment() {
+      document.getElementById('status-section').classList.remove('active');
+      document.getElementById('payment-section').classList.add('active');
+      document.querySelector('.loading').style.display = 'block';
+      document.getElementById('payment-status').style.display = 'none';
+      document.querySelector('.try-again-button').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
